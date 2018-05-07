@@ -11,6 +11,11 @@ Dependencies (to run with Docker):
 Initialise and start all the containers:
 * `docker-compose up -d`
 
+## Run Unit-tests ##
+Make sure that the containers are up and running, then run the following:
+
+`docker-compose exec php-fpm ./vendor/bin/phpunit --bootstrap vendor/autoload.php tests --testdox`
+
 # How to stop #
 
   * Stop containers: `docker-compose stop`
