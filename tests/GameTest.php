@@ -110,4 +110,12 @@ final class GameTest extends TestCase
         $this->assertNotContains('buzz', $result[9]);
         $this->assertContains('buzz', $result[10]);
     }
+
+    public function testResultFizzBuzz(): void
+    {
+        $result = (new Game(10, 20))->result();
+        $this->assertNotContains('fizzbuzz', $result[10]);
+        $this->assertContains('fizzbuzz', $result[15]);
+        $this->assertNotContains('fizzbuzz', $result[20]);
+    }
 }
