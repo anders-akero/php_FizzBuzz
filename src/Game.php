@@ -13,6 +13,8 @@ final class Game
 
     private const FIZZ_VALUE = 3;
     private const FIZZ_TEXT = 'fizz';
+    private const BUZZ_VALUE = 5;
+    private const BUZZ_TEXT = 'buzz';
 
     /**
      * @var int
@@ -60,6 +62,7 @@ final class Game
     {
         $prefix = $number . ' ';
         $append = ($number % self::FIZZ_VALUE) ? '' : self::FIZZ_TEXT;
+        $append .= ($number % self::BUZZ_VALUE) ? '' : self::BUZZ_TEXT;
         return $prefix . $append;
     }
 
