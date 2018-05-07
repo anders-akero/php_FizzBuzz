@@ -11,6 +11,9 @@ final class Game
     const MIN = 1;
     const MAX = 100;
 
+    private const FIZZ_VALUE = 3;
+    private const FIZZ_TEXT = 'fizz';
+
     /**
      * @var int
      */
@@ -55,7 +58,9 @@ final class Game
      */
     private function getValueOf(int $number): string
     {
-        return $number;
+        $prefix = $number . ' ';
+        $append = ($number % self::FIZZ_VALUE) ? '' : self::FIZZ_TEXT;
+        return $prefix . $append;
     }
 
     /**

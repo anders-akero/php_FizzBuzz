@@ -87,4 +87,15 @@ final class GameTest extends TestCase
         $totalIs = count($fizzBuzz->result());
         $this->assertEquals($totalShouldBe, $totalIs);
     }
+
+    public function testResultFizz(): void
+    {
+        $result = (new Game(1, 10))->result();
+        $this->assertNotContains('fizz', $result[1]);
+        $this->assertNotContains('fizz', $result[2]);
+        $this->assertContains('fizz', $result[3]);
+        $this->assertContains('fizz', $result[6]);
+        $this->assertContains('fizz', $result[9]);
+        $this->assertNotContains('fizz', $result[10]);
+    }
 }
