@@ -1,7 +1,6 @@
 <?php
 
 /**
- * Class Iterator
  * Prints out FizzBuzz
  */
 final class Game
@@ -9,7 +8,7 @@ final class Game
     /**
      * Lowest and highest value the game will iterate between
      */
-    const MIN = 0;
+    const MIN = 1;
     const MAX = 100;
 
     /**

@@ -38,4 +38,29 @@ final class GameTest extends TestCase
             'Can not be higher then max' => ['start' => Game::MIN, 'stop' => Game::MAX + 1],
         ];
     }
+
+    /**
+     * @dataProvider validConstructData
+     *
+     * @param $start
+     * @param $stop
+     */
+    public function testConstructValid($start, $stop): void
+    {
+        new Game($start, $stop);
+        $this->assertTrue(true);
+    }
+
+    /**
+     * @return array
+     */
+    public function validConstructData(): array
+    {
+        return [
+            'Can be same as min'                     => ['start' => Game::MIN, 'stop' => Game::MIN],
+            'Can be same as max'                     => ['start' => Game::MAX, 'stop' => Game::MAX],
+            'Can be same as min and max'             => ['start' => Game::MIN, 'stop' => Game::MAX],
+            'Can be any integer between min and max' => ['start' => Game::MIN + 5, 'stop' => Game::MAX - 5],
+        ];
+    }
 }
