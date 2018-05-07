@@ -15,6 +15,19 @@ final class GameTest extends TestCase
         $this->assertTrue(true);
     }
 
+    public function testConstants(): void
+    {
+        $game = new ReflectionClass(Game::class);
+        $this->assertArrayHasKey('MAX', $game->getConstants());
+        $this->assertArrayHasKey('MIN', $game->getConstants());
+    }
+
+    public function testConstantsValue(): void
+    {
+        $this->assertEquals(100, Game::MAX);
+        $this->assertEquals(1, Game::MIN);
+    }
+
     /**
      * @dataProvider invalidConstructData
      *
@@ -62,5 +75,16 @@ final class GameTest extends TestCase
             'Can be same as min and max'             => ['start' => Game::MIN, 'stop' => Game::MAX],
             'Can be any integer between min and max' => ['start' => Game::MIN + 5, 'stop' => Game::MAX - 5],
         ];
+    }
+
+    public function testResultCorrectAmount(): void
+    {
+        $start = Game::MIN;
+        $stop = Game::MAX;
+        $totalShouldBe = count(range($start, $stop));
+
+        $fizzBuzz = new Game($start, $stop);
+        $totalIs = count($fizzBuzz->result());
+        $this->assertEquals($totalShouldBe, $totalIs);
     }
 }

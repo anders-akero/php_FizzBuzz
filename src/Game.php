@@ -35,6 +35,30 @@ final class Game
     }
 
     /**
+     * Returns an associative array with the number as key
+     *
+     * @return array
+     */
+    public function result(): array
+    {
+        $result = [];
+        for ($i = $this->start; $i <= $this->stop; $i++) {
+            $result[$i] = $this->getValueOf($i);
+        }
+        return $result;
+    }
+
+    /**
+     * @param int $number
+     *
+     * @return int|string
+     */
+    private function getValueOf(int $number): string
+    {
+        return $number;
+    }
+
+    /**
      * @param int $start
      */
     private function assertValidStart(int $start): void
